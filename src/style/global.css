@@ -1,0 +1,603 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+html {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+q, blockquote {
+    quotes: none;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none;
+}
+
+a img {
+    border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    height: 100%;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding-top: 53px;
+    padding-bottom: 64px;
+    background-color: #F3F3F3;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 53px;
+    width: 100%;
+}
+
+.main {
+    height: 100%;
+    width: 80%;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 64px;
+}
+
+.team-menu {
+    position: relative;
+    width: 220px;
+    height: 53px;
+    line-height: 53px;
+    font-weight: 900;
+    padding: 0 1rem;
+    color: #ffffff;
+    background: #3e313c;
+    border-bottom: 2px solid #372c36;
+    float: left;
+}
+
+.team-menu .status {
+    color: red;
+}
+
+.team-menu .status.connected {
+    color: green;
+}
+
+.team-menu .logout {
+    font-weight: normal;
+    float: right;
+    color: #B7AFB7;
+    text-decoration: underline;
+}
+
+.channel-menu-name {
+    display: inline-block;
+    padding: 0 .5rem 0 1.5rem;
+    color: #555459;
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 53px;
+}
+
+.channel-menu-prefix {
+    color: #9e9ea6;
+    padding-right: .1rem;
+    font-weight: 500;
+}
+
+.listings {
+    height: 100%;
+    width: 220px;
+    float: left;
+    color: #ab9ba9;
+    background-color: #4d394b;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.message-history {
+    margin-left: 220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    padding: 5px 18px 1rem 1.5rem;
+}
+
+.listings-channels {
+    margin: 1rem 0 2rem;
+}
+
+.listings-header {
+    text-align: left;
+    font-size: .8rem;
+    line-height: 1.25rem;
+    margin: 0 1rem .1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ab9ba9;
+    width: 165px;
+    position: relative;
+}
+
+.channel-list {
+    list-style-type: none;
+    text-align: left;
+    color: #ab9ba9;
+}
+
+.channel {
+    height: 24px;
+    line-height: 24px;
+    -moz-border-radius-topright: 0.25rem;
+    -webkit-border-top-right-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    -moz-border-radius-bottomright: 0.25rem;
+    -webkit-border-bottom-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    margin-right: 17px;
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.channel a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.unread {
+    color: #ffffff;
+    background: #eb4d5c;
+    border-radius: 9px;
+    padding: 2px 9px;
+    font-size: .8rem;
+    line-height: 14px;
+    font-weight: 700;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    float: right;
+    margin-right: 3px;
+    margin-top: 3px;
+}
+
+.channel.active {
+    background: #4c9689;
+}
+
+.channel-prefix {
+    color: #b2d5c9;
+}
+
+.disclaimer {
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    margin-right: 17px;
+}
+
+.message {
+    position: relative;
+    margin-top: .5rem;
+    padding: 0.25rem 2rem 1.1rem 3rem;
+    min-height: 36px;
+}
+
+.message:hover {
+    background: #f9f9f9;
+}
+
+.action-hover-container {
+    display: none;
+    position: absolute;
+    top: -13px;
+    right: 18px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 6px;
+    overflow: hidden;
+    -webkit-transition: border 50ms ease-in 0s;
+    -moz-transition: border 50ms ease-in 0s;
+    transition: border 50ms ease-in 0s;
+    z-index: 97;
+    background-color: #fff;
+}
+
+.action-hover-container .delete-message {
+    border-radius: 0 6px 6px 0;
+    border-right: none;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    border-color: rgba(0,0,0,.3);
+    padding: 5px 10px 5px 10px;
+    display: inline-block;
+}
+
+.action-hover-container .delete-message:hover {
+    color: #3aa3e3;
+}
+
+.message:hover .action-hover-container {
+    display: block;
+}
+
+.message-profile-pic {
+    position: absolute;
+    left: 0;
+    display: block;
+    -moz-border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    border-radius: 0.2rem;
+    width: 36px;
+    height: 36px;
+    background-size: cover;
+}
+
+.message-username {
+    font-weight: 900;
+    padding-right: .25rem;
+    color: #3d3c40 !important;
+    margin-left: 0;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.message-timestamp {
+    text-align: left;
+    display: inline;
+    position: relative;
+    top: 0;
+    left: 0;
+    color: #babbbf;
+    font-size: 12px;
+    line-height: 1.2rem;
+    width: 36px;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.message-content {
+    color: #8b898f;
+    display: block;
+    min-height: 1rem;
+}
+
+.user-menu {
+    float: left;
+    width: 220px;
+    cursor: pointer;
+    background: #3e313c;
+    border-top: 2px solid #372c36;
+    padding: 7px 0 9px 8px;
+    height: 4rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.user-menu-profile-pic {
+    display: inline-block;
+    float: left;
+    -moz-border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    border-radius: 0.2rem;
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    margin-right: 8px;
+}
+
+.user-menu .user-menu-username {
+    display: block;
+    font-weight: 900;
+    line-height: 1.5rem;
+    margin-top: .2rem;
+    width: 146px;
+    height: 35px;
+}
+
+.user-menu span.user-menu-username {
+    color: #fff;
+}
+
+.connection-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.connection-status {
+    color: #ab9ba9;
+}
+
+.input-box {
+    height: 100%;
+    margin-left: 220px;
+}
+
+#header-search-form {
+    margin: 9pt 0 0;
+    width: 309px;
+    padding-right: 3rem;
+    position: absolute;
+    top: 0;
+    right: 6px;
+}
+
+.search-form {
+    padding-right: 118px !important;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0!important;
+}
+
+#header-search-form .search-input {
+    margin-right: 0;
+    outline: 0;
+}
+
+.search-form .search-input {
+    padding: 2px 2rem;
+    font-size: 15px;
+    height: 1.9rem;
+    width: 100%;
+    border-radius: 40px;
+    background: #FFF;
+    border: 1px solid rgba(214,214,214,.61);
+}
+
+input.search-input {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: .5rem;
+    border-radius: 1rem;
+    width: 100%;
+    padding: 0 .8rem;
+    font-size: .9rem;
+}
+
+input.search-input {
+    margin: 0;
+    padding-left: 1.9rem!important;
+    padding-right: 1.9rem!important;
+}
+
+.search-input-highlighted {
+    position: relative;
+    background-color: transparent!important;
+    z-index: 2;
+    text-rendering: optimizeSpeed;
+}
+
+.highlighter-underlay {
+    outline: rgb(85, 84, 89) none 0;
+    border-width: 1px;
+    text-indent: 0px;
+    font-size: 15px;
+    line-height: normal;
+    font-family: Slack-Lato, appleLogo, sans-serif;
+    letter-spacing: 0;
+    word-spacing: 0;
+    font-weight: 400;
+    margin: 2px 30px;
+    width: 230px;
+    top: 0;
+    left: 0;
+}
+
+#header-search-form .highlighter-underlay {
+    line-height: 24px!important;
+    border-width: 1px!important;
+    font-size: 15px!important;
+}
+
+.highlighter-underlay {
+    border-color: transparent!important;
+    border-style: solid;
+    color: transparent!important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: pre;
+    overflow: hidden;
+    text-rendering: optimizeSpeed;
+}
+
+#header-search-form.search-form .icon-search {
+    opacity: .5;
+    -moz-opacity: .5;
+    -khtml-opacity: .5;
+    top: 6px;
+    left: 7px;
+    color: #67686e;
+}
+
+#header-search-form.search-form .icon-search {
+    top: 8px;
+    left: 10px;
+    text-shadow: none;
+}
+
+#client-ui .icon-search {
+    position: absolute;
+    font-size: .9rem;
+    top: 3px;
+    left: 7px;
+    color: #CCC;
+}
+
+.search-form .icon-search {
+    position: absolute;
+    top: 6px;
+    left: 11px;
+    color: #babbbf;
+}
+
+.input-box-text {
+    font-size: .95rem;
+    width: 75%;
+    margin-left: 2%;
+    margin-bottom: auto;
+    line-height: 1.2rem;
+    border: 2px solid #e0e0e0;
+    -moz-border-radius: 0.2rem;
+    -webkit-border-radius: 0.2rem;
+    border-radius: 0.2rem;
+    -moz-background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    color: #3d3c40;
+    -webkit-appearance: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    outline: 0;
+    bottom: 0;
+    min-height: 41px;
+    padding: 9px 5px 9px 8px;
+}
+
+.channels-list-new-btn {
+    float: right;
+    margin-right: 1pc;
+    margin-top: -1px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #ab9ba9;
+    opacity: .6;
+    -moz-opacity: .6;
+    -khtml-opacity: .6;
+    -webkit-transition: opacity 50ms;
+    -moz-transition: opacity 50ms;
+    -o-transition: opacity 50ms;
+    transition: opacity 50ms;
+    border-radius: 10px;
+    padding: 2px 7px 3px 7px;
+    background: #fff;
+}
+.channels-list-new-btn:hover {
+    opacity: .8;
+    -moz-opacity: .8;
+    -khtml-opacity: .8;
+}
+
+.new-channel-name {
+    margin-left: 9px;
+    margin-top: 5px;
+    padding: 5px 0 6px 5px;
+    margin-bottom: 10px;
+}
+
+.channels-headline {
+    z-index: 2;
+    position: relative;
+    background-color: #4D394B;
+}
+
+.new-channel {
+    z-index: 1;
+}
+
+/* always present */
+.expand-transition {
+    transition: all .3s ease;
+    height: 30px;
+    padding: 10px;
+    background-color: #eee;
+    overflow: hidden;
+}
+
+/* .expand-enter defines the starting state for entering */
+/* .expand-leave defines the ending state for leaving */
+.expand-enter, .expand-leave {
+    height: 0;
+    padding: 0 10px;
+    opacity: 0;
+}
+
+.search-right {
+    position: absolute;
+    top: 53px;
+    width: 20%;
+    right: 0;
+    overflow: hidden;
+    height: 84%;
+}
+
+.search-right .message-history {
+    margin-left: 0;
+    padding: 0 0 15px 0;
+}
+
+#app {
+    height: 100%;
+}
+
+.bottom-input {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 64px;
+    width: 100%;
+}
+
+.messages {
+    height: 100%;
+}

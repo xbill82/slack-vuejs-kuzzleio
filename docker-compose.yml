@@ -1,0 +1,19 @@
+kuzzle:
+  image: kuzzleio/kuzzle:alpine
+  ports:
+    - "7511:7511"
+    - "7512:7512"
+  links:
+    - elasticsearch
+    - redis
+  environment:
+    - LIKE_A_VIRGIN
+    - FIXTURES
+    - DEFAULT_MAPPING
+    - FEATURE_COVERAGE
+
+redis:
+  image: redis:3.0-alpine
+
+elasticsearch:
+  image: kuzzleio/elasticsearch:2.2
