@@ -5,8 +5,8 @@ export default {
     messages: []
   },
 
-  sendMessage (content) {
-    let message = {content, date: Date.now()}
+  sendMessage (content, user) {
+    let message = {content, user, date: Date.now()}
     kuzzle
       .dataCollectionFactory('messages')
       .createDocument(message)

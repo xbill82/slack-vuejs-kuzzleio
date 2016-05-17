@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  props: ['store'],
+  props: ['store', 'currentUser'],
   data () {
     return {
       newMessage: null
@@ -22,7 +22,7 @@ export default {
   methods: {
     onEnter () {
       if (this.newMessage.length > 0) {
-        this.store.sendMessage(this.newMessage)
+        this.store.sendMessage(this.newMessage, this.currentUser)
         this.newMessage = null
       }
     }

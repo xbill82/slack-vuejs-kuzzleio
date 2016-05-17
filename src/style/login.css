@@ -1,0 +1,39 @@
+#login {
+    width: 300px;
+    height: 280px;
+    margin: auto;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 6px;
+    background-color: #fff;
+    padding-top: 40px;
+}
+
+#login .title {
+    margin-left: 10px;
+    color: #3e313c;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#login input {
+    display: block;
+    width: 275px;
+    margin: 20px auto 10px auto;
+}
+
+#login .login {
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    padding: 5px 10px 5px 10px;
+    border: 1px solid rgba(0,0,0,.15);
+    display: inline-block;
+    margin-left: 12px;
+    background-color: #FBFBFB;
+}
+
+#login p.error {
+    margin: 20px 0 0 10px;
+    color: red;
+    font-weight: bold;
+}
